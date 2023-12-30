@@ -3,14 +3,14 @@ import type { ReactNode } from 'react';
 type ISectionProps = {
   title?: string;
   description?: string;
-  yPadding?: string;
+  yPadding?: number;
   children: ReactNode;
 };
 
 const Section = (props: ISectionProps) => (
   <div
-    className={`mx-auto max-w-screen-lg px-3 ${
-      props.yPadding ? props.yPadding : 'py-16'
+    className={`mx-4 max-w-screen-lg px-3 md:mx-auto ${
+      props.yPadding ? `py-${props.yPadding}` : 'py-16'
     }`}
   >
     {(props.title || props.description) && (
