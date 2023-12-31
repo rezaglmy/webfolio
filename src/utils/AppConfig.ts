@@ -1,6 +1,6 @@
 export const AppConfig = {
-  site_name: 'Webfolio',
-  title: 'Portfolio Starter',
-  description: 'Starter code for creating a Next.js project with Tailwind CSS',
+  site_name: 'REZA GHOLAMI',
+  title: 'REZA GHOLAMI - Portfolio',
+  description: '',
   locale: 'en',
 };

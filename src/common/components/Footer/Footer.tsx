@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import { Background } from '../../ui';
-import { Logo } from '../Header/Logo';
 import { Section } from '../Layout';
 import { CenteredFooter } from './CenteredFooter';
 
@@ -9,7 +8,6 @@ const Footer = () => (
   <Background color="bg-gray-100">
     <Section>
       <CenteredFooter
-        logo={<Logo />}
         iconList={
           <>
             <Link href="/">
