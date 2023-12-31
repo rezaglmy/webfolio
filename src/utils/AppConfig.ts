@@ -1,6 +1,6 @@
 export const AppConfig = {
-  site_name: 'REZA GHOLAMI',
-  title: 'REZA GHOLAMI - Portfolio',
+  site_name: 'JOHN DOE',
+  title: 'JOHN DOE - Portfolio',
   description: '',
   locale: 'en',
 };
