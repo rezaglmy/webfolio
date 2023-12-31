@@ -1,19 +1,20 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Background } from '@/common/ui';
-
-import { Section } from '../Layout';
 import { Logo } from './Logo';
 
-const Header = () => {
+type Props = {
+  scrollIsTop: boolean;
+};
+
+const Header = ({ scrollIsTop }: Props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <Background color="bg-gray-100">
-      <Section yPadding={4}>
+    <div className="sticky top-0 w-screen bg-gray-100/30 backdrop-blur-md">
+      <div className="mx-4 max-w-screen-lg px-3 py-4 md:mx-auto">
         <nav className="navbar flex items-center justify-between text-xl font-medium">
-          <Link href="/">
+          <Link href="/" className={scrollIsTop ? 'hidden' : ''}>
             <Logo xl />
           </Link>
           <section className="MOBILE-MENU flex lg:hidden">
@@ -89,8 +90,8 @@ const Header = () => {
         align-items: center;
       }
     `}</style>
-      </Section>
-    </Background>
+      </div>
+    </div>
   );
 };
 

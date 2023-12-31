@@ -3,14 +3,14 @@ import type { ReactNode } from 'react';
 type ISectionProps = {
   title?: string;
   description?: string;
-  yPadding?: number;
+  paddingTop?: number;
   children: ReactNode;
 };
 
 const Section = (props: ISectionProps) => (
-  <div
-    className={`mx-4 max-w-screen-lg px-3 md:mx-auto ${
-      props.yPadding ? `py-${props.yPadding}` : 'py-16'
+  <section
+    className={`w-dvw h-screen snap-start ${
+      props.paddingTop ? `pt-[${props.paddingTop}px]` : 'pt-[100px]'
     }`}
   >
     {(props.title || props.description) && (
@@ -25,7 +25,7 @@ const Section = (props: ISectionProps) => (
     )}
 
     {props.children}
-  </div>
+  </section>
 );
 
 export { Section };

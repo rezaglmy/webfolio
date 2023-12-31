@@ -1,4 +1,4 @@
-import { Home } from '../modules';
+import { Home } from '../modules/home';
 
 const Index = () => <Home />;
 

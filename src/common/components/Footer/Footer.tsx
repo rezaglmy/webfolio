@@ -1,12 +1,10 @@
 import Link from 'next/link';
 
-import { Background } from '../../ui';
-import { Section } from '../Layout';
 import { CenteredFooter } from './CenteredFooter';
 
 const Footer = () => (
-  <Background color="bg-gray-100">
-    <Section>
+  <div className="bg-gray-100">
+    <div className="mx-4 max-w-screen-lg px-3 py-16 md:mx-auto">
       <CenteredFooter
         iconList={
           <>
@@ -67,8 +65,8 @@ const Footer = () => (
           <Link href="https://github.com/rezaglmy/webfolio">GitHub</Link>
         </li>
       </CenteredFooter>
-    </Section>
-  </Background>
+    </div>
+  </div>
 );
 
 export { Footer };

@@ -1,12 +1,7 @@
-import { Section } from '@/common/components';
-
 import { VerticalFeatureRow } from './VerticalFeatureRow';
 
 const VerticalFeatures = () => (
-  <Section
-    title="Your title here"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada nisi tellus, non imperdiet nisi tempor at."
-  >
+  <div className="mx-4 max-w-screen-lg px-3 py-16 md:mx-auto">
     <VerticalFeatureRow
       title="Your title here"
       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
@@ -26,7 +21,7 @@ const VerticalFeatures = () => (
       image="/assets/images/feature3.svg"
       imageAlt="Third feature alt text"
     />
-  </Section>
+  </div>
 );
 
 export { VerticalFeatures };
