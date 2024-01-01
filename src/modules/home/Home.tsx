@@ -1,21 +1,22 @@
-import { debounce } from 'lodash';
-import { useState } from 'react';
+import React from 'react';
 
 import { Footer, Header, Meta, Section } from '@/common/components';
 
 import { AppConfig } from '../../utils/AppConfig';
 import { VerticalFeatures } from './components';
+import { useHome } from './hooks/useHome';
 
 const Home = () => {
-  const [scrollTop, setScrollTop] = useState(0);
-
-  const updateScrollTopValue = debounce((value: number) => {
-    setScrollTop(value);
-  }, 100);
-
-  const handleScroll = (event: any) => {
-    updateScrollTopValue(event.currentTarget.scrollTop);
-  };
+  const {
+    menuItems,
+    scrollIsTop,
+    handleScroll,
+    scrollToSection,
+    homeSectionRef,
+    aboutSectionRef,
+    projectsSectionRef,
+    contactSectionRef,
+  } = useHome();
 
   return (
     <div
@@ -23,12 +24,27 @@ const Home = () => {
       onScroll={handleScroll}
     >
       <Meta title={AppConfig.title} description={AppConfig.description} />
-      <Header scrollIsTop={scrollTop <= 100} />
-      <Section>
-        <div className="h-full bg-gray-200 text-3xl">test</div>
+      {!scrollIsTop && (
+        <Header menuItems={menuItems} scrollToSection={scrollToSection} />
+      )}
+
+      <Section ref={homeSectionRef} paddingTop={0}>
+        <div className="flex h-full justify-center bg-gray-200 align-middle text-3xl">
+          <p>home</p>
+        </div>
       </Section>
-      <Section autoHeight>
+      <Section ref={aboutSectionRef}>
+        <div className="flex h-full justify-center bg-gray-200 align-middle text-3xl">
+          <p>about</p>
+        </div>
+      </Section>
+      <Section ref={projectsSectionRef} autoHeight>
         <VerticalFeatures />
+      </Section>
+      <Section ref={contactSectionRef}>
+        <div className="flex h-full justify-center bg-gray-200 align-middle text-3xl">
+          <p>contact</p>
+        </div>
       </Section>
       <Section>
         <Footer />

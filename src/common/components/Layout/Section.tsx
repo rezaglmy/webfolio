@@ -1,6 +1,9 @@
-import type { ReactNode } from 'react';
+import React from 'react';
+import { type ReactNode } from 'react';
 
 type ISectionProps = {
+  ref: HTMLDivElement | null;
+} & {
   title?: string;
   description?: string;
   paddingTop?: number;
@@ -8,27 +11,38 @@ type ISectionProps = {
   autoHeight?: boolean;
 };
 
-const Section = (props: ISectionProps) => (
-  <section
-    className={`w-dvw ${
-      props.autoHeight ? 'min-h-screen' : 'h-screen'
-    } snap-start ${
-      props.paddingTop ? `pt-[${props.paddingTop}px]` : 'pt-[100px]'
-    }`}
-  >
-    {(props.title || props.description) && (
-      <div className="mb-12 text-center">
-        {props.title && (
-          <h2 className="text-4xl font-bold text-gray-900">{props.title}</h2>
+const Section = React.forwardRef<HTMLDivElement, ISectionProps>(
+  (props, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={`w-dvw ${
+          props.autoHeight ? 'min-h-screen' : 'h-screen'
+        } snap-start ${
+          props.paddingTop !== undefined
+            ? `pt-[${props.paddingTop}px]`
+            : 'pt-[100px]'
+        }`}
+      >
+        {(props.title || props.description) && (
+          <div className="mb-12 text-center">
+            {props.title && (
+              <h2 className="text-4xl font-bold text-gray-900">
+                {props.title}
+              </h2>
+            )}
+            {props.description && (
+              <div className="mt-4 text-xl md:px-20">{props.description}</div>
+            )}
+          </div>
         )}
-        {props.description && (
-          <div className="mt-4 text-xl md:px-20">{props.description}</div>
-        )}
-      </div>
-    )}
 
-    {props.children}
-  </section>
+        {props.children}
+      </div>
+    );
+  },
 );
+
+Section.displayName = 'Section';
 
 export { Section };

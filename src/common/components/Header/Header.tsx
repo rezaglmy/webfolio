@@ -1,20 +1,28 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import type { MenuEnum, MenuItem } from '@/modules/home/hooks/useHome';
+
 import { Logo } from './Logo';
 
 type Props = {
-  scrollIsTop: boolean;
+  menuItems: MenuItem[];
+  scrollToSection: (item: MenuEnum) => void;
 };
 
-const Header = ({ scrollIsTop }: Props) => {
+const Header = ({ menuItems, scrollToSection }: Props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
+  const handleSelectMenu = (menu: MenuEnum) => {
+    scrollToSection(menu);
+    setIsNavOpen(false);
+  };
+
   return (
-    <div className="sticky top-0 w-screen bg-gray-100/30 backdrop-blur-md">
-      <div className="mx-4 max-w-screen-lg px-3 py-4 md:mx-auto">
-        <nav className="navbar flex items-center justify-between text-xl font-medium">
-          <Link href="/" className={scrollIsTop ? 'hidden' : ''}>
+    <div className="sticky top-0 h-[100px] w-screen bg-gray-100/30 backdrop-blur-md">
+      <div className="mx-4 h-full max-w-screen-lg px-3 py-4 md:mx-auto">
+        <nav className="navbar flex h-full items-center justify-between text-xl font-medium">
+          <Link href="/">
             <Logo xl />
           </Link>
           <section className="MOBILE-MENU flex lg:hidden">
@@ -46,32 +54,45 @@ const Header = ({ scrollIsTop }: Props) => {
                 </svg>
               </div>
               <ul className="flex min-h-[250px] flex-col items-center justify-between">
-                <li className="my-8 border-b border-gray-400 uppercase">
-                  <a href="/about">About</a>
-                </li>
-                <li className="my-8 border-b border-gray-400 uppercase">
-                  <a href="/projects">Projects</a>
-                </li>
-                <li className="my-8 border-b border-gray-400 uppercase">
-                  <a href="/contact">Contact</a>
-                </li>
+                {menuItems.map((item, index) => (
+                  <li
+                    key={`mobile-menu-${index}`}
+                    className={`my-8 border-b border-gray-400 uppercase ${
+                      item.isActive ? 'active-menu' : ''
+                    }`}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => handleSelectMenu(item.title)}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </section>
 
           <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/projects">Projects</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
+            {menuItems.map((item, index) => (
+              <li
+                key={`desktop-menu-${index}`}
+                className={`${item.isActive ? 'active-menu' : ''}`}
+              >
+                <Link
+                  href={item.href}
+                  onClick={() => handleSelectMenu(item.title)}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <style>{`
+      .active-menu {
+        color: darkorange;
+      }
       .hideMenuNav {
         display: none;
       }
