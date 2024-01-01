@@ -10,7 +10,7 @@ type ICenteredFooterProps = {
 };
 
 const CenteredFooter = (props: ICenteredFooterProps) => (
-  <div className="text-center">
+  <div className="flex flex-col justify-around">
     {props.logo ?? <></>}
 
     <nav>
@@ -23,7 +23,7 @@ const CenteredFooter = (props: ICenteredFooterProps) => (
       <FooterIconList>{props.iconList}</FooterIconList>
     </div>
 
-    <div className="mt-8 text-sm">
+    <div className="mt-8 flex justify-center text-sm">
       <FooterCopyright />
     </div>
 

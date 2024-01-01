@@ -5,11 +5,14 @@ type ISectionProps = {
   description?: string;
   paddingTop?: number;
   children: ReactNode;
+  autoHeight?: boolean;
 };
 
 const Section = (props: ISectionProps) => (
   <section
-    className={`w-dvw h-screen snap-start ${
+    className={`w-dvw ${
+      props.autoHeight ? 'min-h-screen' : 'h-screen'
+    } snap-start ${
       props.paddingTop ? `pt-[${props.paddingTop}px]` : 'pt-[100px]'
     }`}
   >

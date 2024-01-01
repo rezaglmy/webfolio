@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { CenteredFooter } from './CenteredFooter';
 
 const Footer = () => (
-  <div className="bg-gray-100">
-    <div className="mx-4 max-w-screen-lg px-3 py-16 md:mx-auto">
+  <div className="flex h-full bg-gray-100">
+    <div className="mx-4 flex h-full max-w-screen-lg justify-center px-3 py-16 align-middle md:mx-auto">
       <CenteredFooter
         iconList={
           <>
