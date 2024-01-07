@@ -1,21 +1,28 @@
 import className from 'classnames';
 
-type IButtonProps = {
+type ButtonType = 'primary' | 'default' | 'link';
+
+type Props = {
   xl?: boolean;
+  type?: ButtonType;
   children: string;
+  onClick: () => void;
 };
 
-const Button = (props: IButtonProps) => {
+const Button = ({ children, type = 'default', xl, onClick }: Props) => {
   const btnClass = className({
     btn: true,
-    'btn-xl': props.xl,
-    'btn-base': !props.xl,
-    'btn-primary': true,
+    'cursor-pointer': true,
+    'btn-xl': xl,
+    'btn-base': !xl,
+    'btn-primary': type === 'primary',
+    'btn-default': type === 'default',
+    'btn-link': type === 'link',
   });
 
   return (
-    <div className={btnClass}>
-      {props.children}
+    <div className={btnClass} onClick={onClick}>
+      {children}
 
       <style jsx>
         {`
@@ -37,6 +44,22 @@ const Button = (props: IButtonProps) => {
 
           .btn-primary:hover {
             @apply bg-primary-600;
+          }
+
+          .btn-default {
+            @apply text-white bg-gray-500;
+          }
+
+          .btn-default:hover {
+            @apply bg-gray-600;
+          }
+
+          .btn-link {
+            @apply text-primary-500;
+          }
+
+          .btn-link:hover {
+            @apply text-primary-600 underline;
           }
         `}
       </style>

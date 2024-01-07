@@ -9,6 +9,7 @@ type ISectionProps = {
   paddingTop?: number;
   children: ReactNode;
   autoHeight?: boolean;
+  bgColor?: string;
 };
 
 const Section = React.forwardRef<HTMLDivElement, ISectionProps>(
@@ -16,13 +17,13 @@ const Section = React.forwardRef<HTMLDivElement, ISectionProps>(
     return (
       <div
         ref={ref}
-        className={`w-dvw ${
+        className={`w-dvw p-4 ${
           props.autoHeight ? 'min-h-screen' : 'h-screen'
         } snap-start ${
           props.paddingTop !== undefined
             ? `pt-[${props.paddingTop}px]`
             : 'pt-[100px]'
-        }`}
+        } ${props.bgColor ? props.bgColor : 'bg-gray-200'}`}
       >
         {(props.title || props.description) && (
           <div className="mb-12 text-center">

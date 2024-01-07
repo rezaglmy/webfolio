@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import type { MenuEnum, MenuItem } from '@/modules/home/hooks/useHome';
+import type { MenuEnum, MenuItem } from '@/modules/base/hooks/useBase';
 
 import { Logo } from './Logo';
 
 type Props = {
   menuItems: MenuItem[];
   scrollToSection: (item: MenuEnum) => void;
+  visible: boolean;
 };
 
-const Header = ({ menuItems, scrollToSection }: Props) => {
+const Header = ({ menuItems, scrollToSection, visible = false }: Props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleSelectMenu = (menu: MenuEnum) => {
@@ -19,11 +20,15 @@ const Header = ({ menuItems, scrollToSection }: Props) => {
   };
 
   return (
-    <div className="sticky top-0 h-[100px] w-screen bg-gray-100/30 backdrop-blur-md">
+    <div
+      className={`sticky top-0 h-[100px] w-screen bg-gray-200/70 backdrop-blur-lg ${
+        visible ? 'visible' : 'invisible'
+      }`}
+    >
       <div className="mx-4 h-full max-w-screen-lg px-3 py-4 md:mx-auto">
         <nav className="navbar flex h-full items-center justify-between text-xl font-medium">
           <Link href="/">
-            <Logo xl />
+            <Logo withTitle />
           </Link>
           <section className="MOBILE-MENU flex lg:hidden">
             <div
@@ -58,15 +63,15 @@ const Header = ({ menuItems, scrollToSection }: Props) => {
                   <li
                     key={`mobile-menu-${index}`}
                     className={`my-8 border-b border-gray-400 uppercase ${
-                      item.isActive ? 'active-menu' : ''
+                      item.isActive ? 'text-primary-500' : ''
                     }`}
                   >
-                    <Link
-                      href={item.href}
+                    <p
+                      className="cursor-pointer"
                       onClick={() => handleSelectMenu(item.title)}
                     >
                       {item.title}
-                    </Link>
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -77,22 +82,19 @@ const Header = ({ menuItems, scrollToSection }: Props) => {
             {menuItems.map((item, index) => (
               <li
                 key={`desktop-menu-${index}`}
-                className={`${item.isActive ? 'active-menu' : ''}`}
+                className={`${item.isActive ? 'text-primary-500' : ''}`}
               >
-                <Link
-                  href={item.href}
+                <p
+                  className="cursor-pointer"
                   onClick={() => handleSelectMenu(item.title)}
                 >
                   {item.title}
-                </Link>
+                </p>
               </li>
             ))}
           </ul>
         </nav>
         <style>{`
-      .active-menu {
-        color: darkorange;
-      }
       .hideMenuNav {
         display: none;
       }

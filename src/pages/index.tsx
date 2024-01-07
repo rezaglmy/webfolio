@@ -1,5 +1,5 @@
-import { Home } from '../modules/home';
+import { Base } from '../modules/base';
 
-const Index = () => <Home />;
+const Index = () => <Base />;
 
 export default Index;

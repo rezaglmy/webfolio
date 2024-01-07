@@ -1,6 +1,5 @@
-import { debounce } from 'lodash';
 import type { RefObject } from 'react';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 export enum MenuEnum {
   HOME = 'Home',
@@ -11,13 +10,12 @@ export enum MenuEnum {
 
 export type MenuItem = {
   title: MenuEnum;
-  href: string;
   isActive: boolean;
 };
 
-type UseHomeResult = {
+type UseBaseResult = {
   menuItems: MenuItem[];
-  scrollIsTop: boolean;
+  headerIsVisible: boolean;
   handleScroll: (event: any) => void;
   scrollToSection: (item: MenuEnum) => void;
   homeSectionRef: RefObject<HTMLDivElement>;
@@ -26,21 +24,20 @@ type UseHomeResult = {
   contactSectionRef: RefObject<HTMLDivElement>;
 };
 
-export const useHome = (): UseHomeResult => {
-  const [scrollTop, setScrollTop] = useState(0);
+export const useBase = (): UseBaseResult => {
+  const [, setScrollTop] = useState(0);
+  const [headerIsVisible, setHeaderIsVisible] = useState(false);
   const homeSectionRef = useRef<HTMLDivElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const projectsSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
 
-  const scrollIsTop = scrollTop <= 100;
-
-  const updateScrollTopValue = debounce((value: number) => {
-    setScrollTop(value);
-  }, 100);
+  // const updateScrollTopValue = debounce((value: number) => {
+  //   setScrollTop(value);
+  // }, 100);
 
   const handleScroll = (event: any) => {
-    updateScrollTopValue(event.currentTarget.scrollTop);
+    setScrollTop(event.currentTarget.scrollTop);
   };
 
   const homeSectionElement = useMemo(() => {
@@ -109,7 +106,7 @@ export const useHome = (): UseHomeResult => {
         break;
     }
 
-    return (
+    const isActive =
       (currentElement?.top as number) >
         -(
           (currentElement?.height as number) -
@@ -117,30 +114,27 @@ export const useHome = (): UseHomeResult => {
         ) &&
       (currentElement?.bottom as number) <=
         (currentElement?.height as number) +
-          (prevElement ? (prevElement?.height as number) % 1 : 0)
-    );
+          (prevElement ? (prevElement?.height as number) % 1 : 0);
+
+    return isActive;
   };
 
   const menuItems = useMemo(
     () => [
       {
         title: MenuEnum.HOME,
-        href: '#home',
         isActive: checkActiveMenu(MenuEnum.HOME),
       },
       {
         title: MenuEnum.ABOUT,
-        href: '#about',
         isActive: checkActiveMenu(MenuEnum.ABOUT),
       },
       {
         title: MenuEnum.PROJECTS,
-        href: '#projects',
         isActive: checkActiveMenu(MenuEnum.PROJECTS),
       },
       {
         title: MenuEnum.CONTACT,
-        href: '#contact',
         isActive: checkActiveMenu(MenuEnum.CONTACT),
       },
     ],
@@ -152,9 +146,16 @@ export const useHome = (): UseHomeResult => {
     ],
   );
 
+  useEffect(() => {
+    const activeMenu = menuItems?.find((item) => item.isActive);
+    if (activeMenu) {
+      setHeaderIsVisible(activeMenu.title !== MenuEnum.HOME);
+    }
+  }, [menuItems]);
+
   return {
     menuItems,
-    scrollIsTop,
+    headerIsVisible,
     handleScroll,
     scrollToSection,
     homeSectionRef,
