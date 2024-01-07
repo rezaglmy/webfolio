@@ -23,7 +23,7 @@ const Logo = ({ withTitle, large }: ILogoProps) => {
         alt="logo"
       />
 
-      {withTitle && AppConfig.site_name}
+      {withTitle && AppConfig.full_name}
     </span>
   );
 };
