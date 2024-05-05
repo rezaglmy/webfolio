@@ -38,7 +38,7 @@ const Button = ({
           }
 
           .btn-base {
-            @apply text-lg font-semibold py-2 px-4;
+            @apply md:text-lg font-semibold py-2 px-4;
           }
 
           .btn-xl {

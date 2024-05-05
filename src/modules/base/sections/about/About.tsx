@@ -29,7 +29,7 @@ const About = React.forwardRef<HTMLDivElement, Props>(
             <h1 className="text-center text-3xl font-bold text-gray-900 md:text-left">
               ABOUT ME
             </h1>
-            <p className="mt-4 max-w-screen-sm text-lg text-gray-700">
+            <p className="mt-4 max-w-screen-sm px-2 text-lg text-gray-700 md:px-0">
               {AppConfig.about_description}
             </p>
             <div className="mt-4 text-center md:text-left">
@@ -43,7 +43,7 @@ const About = React.forwardRef<HTMLDivElement, Props>(
           </div>
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-gray-900">SKILLS</h1>
-            <ul className="mt-4 grid grid-cols-2 gap-4 text-base font-semibold leading-relaxed md:grid-cols-3">
+            <ul className="mt-4 grid grid-cols-2 gap-4 px-2 text-base font-semibold leading-relaxed md:grid-cols-3 md:px-0">
               <SkillItem name="JavaScript" />
               <SkillItem name="TypeScript" />
               <SkillItem name="React" />
