@@ -59,7 +59,6 @@ const Contact = React.forwardRef<HTMLDivElement, Props>((_props, ref) => {
             </label>
             <input
               type="text"
-              aria-invalid={errors.name}
               aria-describedby="name-error"
               autoComplete="name"
               className="w-full rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
@@ -81,7 +80,6 @@ const Contact = React.forwardRef<HTMLDivElement, Props>((_props, ref) => {
             </label>
             <input
               type="email"
-              aria-invalid={errors.email}
               aria-describedby="email-error"
               autoComplete="name"
               className="w-full rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
@@ -109,8 +107,7 @@ const Contact = React.forwardRef<HTMLDivElement, Props>((_props, ref) => {
               Message
             </label>
             <textarea
-              rows="3"
-              aria-invalid={errors.message}
+              rows={3}
               aria-describedby="message-error"
               className="w-full resize-none rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
               {...register('message', {

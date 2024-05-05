@@ -48,15 +48,13 @@ const About = React.forwardRef<HTMLDivElement, Props>(
               <SkillItem name="TypeScript" />
               <SkillItem name="React" />
               <SkillItem name="Next.js" />
-              <SkillItem name="Node.js" />
-              <SkillItem name="Express" />
-              <SkillItem name="MongoDB" />
-              <SkillItem name="MySQL" />
-              <SkillItem name="Docker" />
+              <SkillItem name="Angular" />
+              <SkillItem name="Vue.js" />
+              <SkillItem name="React Native" />
+              <SkillItem name="JQuery" />
               <SkillItem name="Git" />
               <SkillItem name="Tailwind CSS" />
-              <SkillItem name="Vercel" />
-              <SkillItem name="Netlify" />
+              <SkillItem name="Bootstrap" />
             </ul>
           </div>
         </div>

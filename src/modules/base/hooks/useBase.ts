@@ -32,10 +32,6 @@ export const useBase = (): UseBaseResult => {
   const projectsSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
 
-  // const updateScrollTopValue = debounce((value: number) => {
-  //   setScrollTop(value);
-  // }, 100);
-
   const handleScroll = (event: any) => {
     setScrollTop(event.currentTarget.scrollTop);
   };

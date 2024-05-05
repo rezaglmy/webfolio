@@ -1,6 +1,6 @@
-# Portfolio Template
+# Webfolio
 
-🚀 Portfolio template ⚡️ Made with: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Netlify, PostCSS, Tailwind CSS.
+A Portfolio template made with: Next.js, TypeScript, Tailwind CSS.
 
 ### Requirements
 
@@ -12,6 +12,12 @@ Run the following command on your local environment:
 
 ```
 npm install
+```
+
+Create env file and change values:
+
+```
+cp .env.example .env
 ```
 
 Then, you can run locally in development mode with live reload:
@@ -31,8 +37,6 @@ $ npm run build
 $ npm run start
 ```
 
-The generated HTML and CSS files are minified (built-in feature from Next js). It will also removed unused CSS from [Tailwind CSS](https://tailwindcss.com).
-
 You can create an optimized production build with:
 
 ```
@@ -47,16 +51,3 @@ Clone this repository on own GitHub account and deploy to Netlify:
 
 [![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rezaglmy/webfolio)
 
-### Deploy to Vercel
-
-Deploy on Vercel in one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Frezaglmy%2Fwebfolio)
-
-### License
-
-Licensed under the MIT License, Copyright © 2023
-
-See [LICENSE](LICENSE) for more information.
-
----
