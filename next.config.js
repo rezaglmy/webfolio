@@ -10,5 +10,6 @@ module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
+  output: 'standalone',
   reactStrictMode: true,
 });
