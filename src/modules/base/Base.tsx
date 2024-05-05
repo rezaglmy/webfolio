@@ -21,7 +21,7 @@ const Base = () => {
 
   return (
     <div
-      className="no-scrollbar h-screen snap-y snap-mandatory overflow-y-scroll"
+      className="no-scrollbar h-screen overflow-y-scroll md:snap-y md:snap-mandatory"
       onScroll={handleScroll}
     >
       <Meta title={AppConfig.title} description={AppConfig.description} />

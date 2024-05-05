@@ -41,19 +41,19 @@ const Contact = React.forwardRef<HTMLDivElement, Props>((_props, ref) => {
   }
 
   return (
-    <Section ref={ref}>
+    <Section ref={ref} paddingTop={50}>
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <h1 className="text-3xl font-bold">CONTACT</h1>
-        <p>
+        <p className="text-center">
           Feel free to Contact me by submitting the form below and I will get
           back to you as soon as possible
         </p>
 
         <form className="mt-8 md:w-2/5" onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-5">
+          <div className="mb-3">
             <label
               htmlFor="name"
-              className="mb-3 block text-base font-medium text-black"
+              className="block text-base font-medium text-black"
             >
               Full Name
             </label>
@@ -71,10 +71,10 @@ const Contact = React.forwardRef<HTMLDivElement, Props>((_props, ref) => {
               </span>
             )}
           </div>
-          <div className="mb-5">
+          <div className="mb-3">
             <label
               htmlFor="email"
-              className="mb-3 block text-base font-medium text-black"
+              className="block text-base font-medium text-black"
             >
               Email Address
             </label>
@@ -99,10 +99,10 @@ const Contact = React.forwardRef<HTMLDivElement, Props>((_props, ref) => {
               </span>
             )}
           </div>
-          <div className="mb-5">
+          <div className="mb-3">
             <label
               htmlFor="message"
-              className="mb-3 block text-base font-medium text-black"
+              className="block text-base font-medium text-black"
             >
               Message
             </label>

@@ -22,11 +22,11 @@ const Header = ({ menuItems, scrollToSection, visible = false }: Props) => {
 
   return (
     <div
-      className={`sticky top-0 z-50 h-[100px] w-screen bg-gray-200/70 backdrop-blur-lg ${
-        visible ? 'visible' : 'invisible'
+      className={`sticky top-0 z-50 w-screen bg-gray-200/70 backdrop-blur-lg ${
+        visible ? 'visible h-[80px] md:h-[100px]' : 'invisible h-0'
       }`}
     >
-      <div className="mx-4 h-full max-w-screen-lg px-3 py-4 md:mx-auto">
+      <div className="mx-4 h-full max-w-screen-lg px-3 pt-3 md:mx-auto md:py-4">
         <nav className="navbar flex h-full items-center justify-between text-xl font-medium">
           <Link href="/">
             <Logo withTitle />

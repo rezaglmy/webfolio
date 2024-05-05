@@ -1,7 +1,7 @@
 import { VerticalProjectRow } from './VerticalProjectRow';
 
 const VerticalProjects = () => (
-  <div className="mx-4 h-full max-w-screen-lg px-3 py-16 md:mx-auto">
+  <div className="mx-4 h-full max-w-screen-lg px-3 md:mx-auto md:py-16">
     <h1 className="text-center text-3xl font-bold">PROJECTS</h1>
     <VerticalProjectRow
       title="Project 1"
