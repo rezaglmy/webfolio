@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Footer, Header, Meta, Section } from '@/common/components';
+import { Header, Meta, Section } from '@/common/components';
 
 import { AppConfig } from '../../utils/AppConfig';
-import { VerticalFeatures } from './components';
+import { VerticalProjects } from './components';
 import { useBase } from './hooks/useBase';
 import { About, Contact, Home } from './sections';
 
@@ -33,15 +33,13 @@ const Base = () => {
 
       <Home ref={homeSectionRef} scrollToSection={scrollToSection} />
 
-      <About ref={aboutSectionRef} />
+      <About ref={aboutSectionRef} scrollToSection={scrollToSection} />
 
       <Section ref={projectsSectionRef} autoHeight bgColor="bg-gray-100">
-        <VerticalFeatures />
+        <VerticalProjects />
       </Section>
 
       <Contact ref={contactSectionRef} />
-
-      <Footer />
     </div>
   );
 };
