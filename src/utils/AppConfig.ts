@@ -11,7 +11,7 @@ export const AppConfig = {
   
   I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me`,
   contact: {
-    email: 'YOUR_EMAIL',
+    email: 'rezaglmy@gmail.com',
     github_username: 'YOUR_GITHUB_USERNAME',
     linkedin_username: 'YOUR_LINKEDIN_USERNAME',
   },

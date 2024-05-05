@@ -5,11 +5,18 @@ type ButtonType = 'primary' | 'default' | 'link';
 type Props = {
   xl?: boolean;
   type?: ButtonType;
+  disabled?: boolean;
   children: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
-const Button = ({ children, type = 'default', xl, onClick }: Props) => {
+const Button = ({
+  children,
+  type = 'default',
+  disabled,
+  xl,
+  onClick,
+}: Props) => {
   const btnClass = className({
     btn: true,
     'cursor-pointer': true,
@@ -21,7 +28,7 @@ const Button = ({ children, type = 'default', xl, onClick }: Props) => {
   });
 
   return (
-    <div className={btnClass} onClick={onClick}>
+    <button className={btnClass} onClick={onClick} disabled={!!disabled}>
       {children}
 
       <style jsx>
@@ -63,7 +70,7 @@ const Button = ({ children, type = 'default', xl, onClick }: Props) => {
           }
         `}
       </style>
-    </div>
+    </button>
   );
 };
 
