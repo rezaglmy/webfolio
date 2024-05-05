@@ -23,14 +23,16 @@ const SkillItem = ({ name }: { name: string }) => {
 const About = React.forwardRef<HTMLDivElement, Props>(
   ({ scrollToSection }, ref) => {
     return (
-      <Section ref={ref}>
-        <div className="grid h-full grid-cols-2 gap-8 px-64 md:mt-32 md:flex-row md:items-start">
-          <div className="text-center  md:text-left">
-            <h1 className="text-3xl font-semibold text-gray-900">ABOUT ME</h1>
+      <Section ref={ref} autoHeight>
+        <div className="grid h-full gap-16 md:mt-32 md:grid-cols-2 md:flex-row md:items-start lg:px-32 xl:px-64">
+          <div className="text-justify">
+            <h1 className="text-center text-3xl font-bold text-gray-900 md:text-left">
+              ABOUT ME
+            </h1>
             <p className="mt-4 max-w-screen-sm text-lg text-gray-700">
               {AppConfig.about_description}
             </p>
-            <div className="mt-4">
+            <div className="mt-4 text-center md:text-left">
               <Button
                 type="primary"
                 onClick={() => scrollToSection(MenuEnum.CONTACT)}
@@ -40,8 +42,8 @@ const About = React.forwardRef<HTMLDivElement, Props>(
             </div>
           </div>
           <div className="text-center md:text-left">
-            <h1 className="text-3xl font-semibold text-gray-900">SKILLS</h1>
-            <ul className="mt-4 grid grid-cols-4 gap-4 text-base font-semibold leading-relaxed">
+            <h1 className="text-3xl font-bold text-gray-900">SKILLS</h1>
+            <ul className="mt-4 grid grid-cols-2 gap-4 text-base font-semibold leading-relaxed md:grid-cols-3">
               <SkillItem name="JavaScript" />
               <SkillItem name="TypeScript" />
               <SkillItem name="React" />
