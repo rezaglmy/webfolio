@@ -56,7 +56,7 @@ const VerticalProjectRow = (props: IVerticalProjectRowProps) => {
         <img
           src={`${router.basePath}${props.image}`}
           alt={props.imageAlt}
-          className="absolute left-[16%] top-[15%] h-[65%] w-[68%] object-fill md:left-[14%] md:top-[12.7%] md:h-[70%] md:w-[72%]"
+          className="absolute left-[16%] top-[15%] h-[65%] w-[68%] object-fill md:left-[14%] md:top-[12.6%] md:h-[70%] md:w-[72%]"
         />
       </div>
     </div>
