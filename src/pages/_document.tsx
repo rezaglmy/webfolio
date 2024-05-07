@@ -8,12 +8,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-            rel="stylesheet"
-          />
-        </Head>
+        <Head></Head>
         <body className="overflow-hidden">
           <Main />
           <NextScript />

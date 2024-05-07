@@ -45,7 +45,7 @@ const Button = ({
           }
 
           .btn-sm {
-            @apply font-semibold text-sm px-2;
+            @apply font-semibold text-sm py-[2px] px-3;
           }
 
           .btn-xl {

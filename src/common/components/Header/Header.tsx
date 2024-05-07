@@ -27,7 +27,7 @@ const Header = ({ menuItems, scrollToSection, visible = false }: Props) => {
         visible ? 'visible h-[80px] md:h-[100px]' : 'invisible h-0'
       }`}
     >
-      <div className="mx-4 h-full max-w-screen-lg px-3 pt-3 md:mx-auto md:py-4">
+      <div className="mx-4 h-full max-w-screen-lg p-3 md:mx-auto md:py-4">
         <nav className="navbar flex h-full items-center justify-between text-xl font-medium">
           <Link href="/">
             <Logo withTitle />
@@ -94,7 +94,7 @@ const Header = ({ menuItems, scrollToSection, visible = false }: Props) => {
                 </p>
               </li>
             ))}
-            <li className="header-icon-list flex items-center justify-center align-middle md:justify-start">
+            <li className="header-icon-list flex items-center justify-center md:justify-start">
               <Link
                 href={`https://github.com/${AppConfig.contact.github_username}`}
                 target="_blank"

@@ -14,7 +14,7 @@ type Props = {
 
 const SkillItem = ({ name }: { name: string }) => {
   return (
-    <li className="mr-1.6 relative mb-1 overflow-hidden rounded-lg border border-gray-400 bg-gray-400 px-2.5 py-1 text-center leading-relaxed text-black">
+    <li className="mr-1.6 relative mb-1 overflow-hidden rounded-lg border border-gray-400 bg-gray-400 px-2.5 py-1 text-center leading-relaxed text-black md:py-2">
       {name}
     </li>
   );
