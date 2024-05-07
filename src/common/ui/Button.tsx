@@ -3,6 +3,7 @@ import className from 'classnames';
 type ButtonType = 'primary' | 'default' | 'link';
 
 type Props = {
+  sm?: boolean;
   xl?: boolean;
   type?: ButtonType;
   disabled?: boolean;
@@ -14,14 +15,16 @@ const Button = ({
   children,
   type = 'default',
   disabled,
+  sm,
   xl,
   onClick,
 }: Props) => {
   const btnClass = className({
     btn: true,
     'cursor-pointer': true,
+    'btn-sm': sm,
     'btn-xl': xl,
-    'btn-base': !xl,
+    'btn-base': !xl && !sm,
     'btn-primary': type === 'primary',
     'btn-default': type === 'default',
     'btn-link': type === 'link',
@@ -39,6 +42,10 @@ const Button = ({
 
           .btn-base {
             @apply md:text-lg font-semibold py-2 px-4;
+          }
+
+          .btn-sm {
+            @apply font-semibold text-sm px-2;
           }
 
           .btn-xl {
