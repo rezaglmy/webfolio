@@ -2,7 +2,7 @@
 
 A Portfolio template made with: Next.js, TypeScript, Tailwind CSS.
 
-## [👀Demo](https://webfolio.ir){:target="_blank"}
+## [👀Demo](https://webfolio.ir)
 
 ### Requirements
 
